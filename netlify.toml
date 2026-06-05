@@ -5,19 +5,21 @@
 [build.environment]
   JEKYLL_ENV = "production"
 
-# /admin 진입은 Netlify에 그대로 둠
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[redirects]]
   from = "/admin"
   to = "/admin/index.html"
   status = 200
 
-# /admin 하위 파일도 그대로 둠
 [[redirects]]
   from = "/admin/*"
   to = "/admin/:splat"
   status = 200
 
-# 나머지 모든 Netlify 접속은 GitHub Pages로 보냄
 [[redirects]]
   from = "/*"
   to = "https://dohyeony.github.io/:splat"
