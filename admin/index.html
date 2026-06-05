@@ -5,6 +5,16 @@
     <meta name="robots" content="noindex" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>개발일지 CMS</title>
+
+    <script>
+      const NETLIFY_ADMIN_URL = "https://ephemeral-puffpuff-f6588b.netlify.app/admin";
+
+      if (window.location.hostname === "dohyeony.github.io") {
+        window.location.replace(
+          NETLIFY_ADMIN_URL + window.location.search + window.location.hash
+        );
+      }
+    </script>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"></script>
