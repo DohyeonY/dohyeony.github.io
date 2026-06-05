@@ -1,0 +1,44 @@
+backend:
+  name: github
+  repo: DohyeonY/dohyeony.github.io
+  branch: main
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+locale: "ko"
+
+collections:
+  - name: "posts"
+    label: "개발일지"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} - {{date}}"
+    fields:
+      - label: "제목"
+        name: "title"
+        widget: "string"
+
+      - label: "작성일"
+        name: "date"
+        widget: "datetime"
+
+      - label: "카테고리"
+        name: "categories"
+        widget: "list"
+        default:
+          - "개발일지"
+
+      - label: "태그"
+        name: "tags"
+        widget: "list"
+        default:
+          - "godot"
+          - "gamedev"
+
+      - label: "본문"
+        name: "body"
+        widget: "markdown"
